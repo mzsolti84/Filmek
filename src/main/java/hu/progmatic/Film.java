@@ -21,8 +21,11 @@ public class Film {
     this.date = date;
     this.runTime = runTime;
     this.budget = budget;
-    if (!genre.equals("") && genre != null) this.genre = genre;
-      else this.genre = "Idk.";
+    if (genre == null || genre.equals("")) {
+      this.genre = "Idk.";
+    } else {
+      this.genre = genre;
+    }
   }
 
   public Film(String FILM_ID, String title, String date, int runTime, int budget) {
@@ -39,7 +42,7 @@ public class Film {
   }
 
   public void setGenre(String genre) {
-    if (!genre.equals("") && genre != null) this.genre = genre;
+    if (!genre.equals("") || genre != null) this.genre = genre;
     else this.genre = "Idk.";
   }
 
