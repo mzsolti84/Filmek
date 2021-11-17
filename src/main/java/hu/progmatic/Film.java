@@ -42,8 +42,11 @@ public class Film {
   }
 
   public void setGenre(String genre) {
-    if (!genre.equals("") || genre != null) this.genre = genre;
-    else this.genre = "Idk.";
+    if (genre == null || genre.equals("")) {
+      this.genre = "Idk.";
+    } else {
+      this.genre = genre;
+    }
   }
 
   final public String getFILM_ID() {
@@ -86,12 +89,13 @@ public class Film {
   final public int getFilmkockak() {
     return this.runTime * 24;
   }
+
   final public int getKategoria() {
     if (this.budget <= 1000) return 0;
-    else if (this.budget > 1000 && this.budget <= 10_000) return 1;
-    else if (this.budget > 10_000 && this.budget <= 100_000) return 2;
-    else if (this.budget > 100_000 && this.budget <= 1_000_000) return 3;
-    else if (this.budget > 1_000_000 && this.budget <= 10_000_000) return 4;
+    else if (this.budget <= 10_000) return 1;
+    else if (this.budget <= 100_000) return 2;
+    else if (this.budget <= 1_000_000) return 3;
+    else if (this.budget <= 10_000_000) return 4;
     else return 5;
   }
 

@@ -1,8 +1,8 @@
 package hu.progmatic;
 
 public final class HorrorFilm extends Film {
-  boolean voltBenneSzellem;
-  boolean voltBenneSzornyeteg;
+  private boolean voltBenneSzellem;
+  private boolean voltBenneSzornyeteg;
 
   public HorrorFilm(String FILM_ID, String title, String date, String genre, int runTime, int budget) {
     super(FILM_ID, title, date, genre, runTime, budget);
