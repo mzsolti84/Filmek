@@ -3,11 +3,11 @@ package hu.progmatic;
 public final class RomantikusFilm extends Film{
   private int hazassagokSzama;
 
-  public RomantikusFilm(String FILM_ID, String title, String date, String genre, int runTime, int budget) {
+  public RomantikusFilm(String FILM_ID, String title, int date, String genre, int runTime, int budget) {
     super(FILM_ID, title, date, genre, runTime, budget);
   }
 
-  public RomantikusFilm(String FILM_ID, String title, String date, int runTime, int budget) {
+  public RomantikusFilm(String FILM_ID, String title, int date, int runTime, int budget) {
     super(FILM_ID, title, date, runTime, budget);
   }
 

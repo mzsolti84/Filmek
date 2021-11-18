@@ -4,11 +4,11 @@ public final class HorrorFilm extends Film {
   private boolean voltBenneSzellem;
   private boolean voltBenneSzornyeteg;
 
-  public HorrorFilm(String FILM_ID, String title, String date, String genre, int runTime, int budget) {
+  public HorrorFilm(String FILM_ID, String title, int date, String genre, int runTime, int budget) {
     super(FILM_ID, title, date, genre, runTime, budget);
   }
 
-  public HorrorFilm(String FILM_ID, String title, String date, int runTime, int budget) {
+  public HorrorFilm(String FILM_ID, String title, int date, int runTime, int budget) {
     super(FILM_ID, title, date, runTime, budget);
   }
 

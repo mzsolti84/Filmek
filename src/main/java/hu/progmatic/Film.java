@@ -4,10 +4,11 @@ public class Film {
   final private String[] GENRE_DB = {"Horror", "Romantikus", "Western", "Idk."};
   final private String FILM_ID;
   private String title; //magyarul
-  private String date;
+  private int date;
   private String genre;
   private int runTime; //mp
   private int budget; //egész dollár
+
 
   /**Lehetséges műfajok (genre):
    * 0 = Horror;
@@ -15,7 +16,7 @@ public class Film {
    * 2 = Western;
    * 3 = Idk.
    */
-  public Film(String FILM_ID, String title, String date, String genre, int runTime, int budget) {
+  public Film(String FILM_ID, String title, int date, String genre, int runTime, int budget) {
     this.FILM_ID = FILM_ID;
     this.title = title;
     this.date = date;
@@ -28,7 +29,7 @@ public class Film {
     }
   }
 
-  public Film(String FILM_ID, String title, String date, int runTime, int budget) {
+  public Film(String FILM_ID, String title, int date, int runTime, int budget) {
     this.FILM_ID = FILM_ID;
     this.title = title;
     this.date = date;
@@ -61,11 +62,11 @@ public class Film {
     this.title = title;
   }
 
-  final public String getDate() {
+  final public int getDate() {
     return date;
   }
 
-  final public void setDate(String date) {
+  final public void setDate(int date) {
     this.date = date;
   }
 
