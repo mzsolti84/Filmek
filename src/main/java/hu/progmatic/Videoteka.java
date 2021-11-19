@@ -2,25 +2,24 @@ package hu.progmatic;
 
 public class Videoteka {
   private Film[] filmek;
-  private final int size;
+  //private final int size;
 
   public Videoteka(int size) {
     filmek = new Film[size];
-    this.size = size;
+    //this.size = size;
   }
 
   public void addFilm(Film film) {
-    boolean isEmpty = false;
+    Integer index = null;
     for (int i = 0; i < filmek.length; i++) {
-      if (isEmpty) break;
-
       if (filmek[i] == null) {
-        filmek[i] = film;
-        isEmpty = true;
+        if (index == null) { index = i; /* első szabad helyet keressük */ }
       }
     }
 
-    if (!isEmpty) throw new RuntimeException("Nincs üres hely");
+    if (index != null) { filmek[index] = film;
+    } else { throw new RuntimeException("Nincs üres hely"); }
+
   }
 
   public void listaz () {
@@ -62,6 +61,6 @@ public class Videoteka {
         }
       }
     }
-    System.out.println("Házasságok száma a filmekban összesen: " + hazassagokSzama);
+    System.out.println("Házasságok száma a filmekben összesen: " + hazassagokSzama);
   }
 }
