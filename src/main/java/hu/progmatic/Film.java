@@ -2,7 +2,7 @@ package hu.progmatic;
 
 public class Film {
   final private String[] GENRE_DB = {"Horror", "Romantikus", "Western", "Idk."};
-  final private String FILM_ID;
+  private String FILM_ID; //azért nem final, hogy lehessen file-ból olvasni
   private String title; //magyarul
   private int date;
   private String genre;
@@ -48,6 +48,10 @@ public class Film {
     } else {
       this.genre = genre;
     }
+  }
+
+  public void setFILM_ID(String FILM_ID) {
+    this.FILM_ID = FILM_ID;
   }
 
   final public String getFILM_ID() {

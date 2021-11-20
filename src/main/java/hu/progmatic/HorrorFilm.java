@@ -1,8 +1,8 @@
 package hu.progmatic;
 
 public final class HorrorFilm extends Film {
-  private boolean voltBenneSzellem;
-  private boolean voltBenneSzornyeteg;
+  private boolean itHadAGhost;
+  private boolean itHadAMonster;
 
   public HorrorFilm(String FILM_ID, String title, int date, String genre, int runTime, int budget) {
     super(FILM_ID, title, date, genre, runTime, budget);
@@ -12,39 +12,39 @@ public final class HorrorFilm extends Film {
     super(FILM_ID, title, date, runTime, budget);
   }
 
-  public boolean isVoltBenneSzellem() {
-    return voltBenneSzellem;
+  public boolean isItHadAGhost() {
+    return itHadAGhost;
   }
 
-  public void setVoltBenneSzellem(boolean voltBenneSzellem) {
-    this.voltBenneSzellem = voltBenneSzellem;
+  public void setItHadAGhost(boolean itHadAGhost) {
+    this.itHadAGhost = itHadAGhost;
   }
 
-  public boolean isVoltBenneSzornyeteg() {
-    return voltBenneSzornyeteg;
+  public boolean isItHadAMonster() {
+    return itHadAMonster;
   }
 
-  public void setVoltBenneSzornyeteg(boolean voltBenneSzornyeteg) {
-    this.voltBenneSzornyeteg = voltBenneSzornyeteg;
+  public void setItHadAMonster(boolean itHadAMonster) {
+    this.itHadAMonster = itHadAMonster;
   }
 
   @Override
   public int getMufajErtekeles() {
     int osszesen = 0;
-    if (voltBenneSzellem) osszesen += 2;
-    if (voltBenneSzornyeteg) osszesen += 3;
+    if (itHadAGhost) osszesen += 2;
+    if (itHadAMonster) osszesen += 3;
     return osszesen;
   }
 
   @Override
   public String toString () {
-    String uzenet = super.toString();
-    if (voltBenneSzellem) {
-      uzenet += "+ Volt benne szellem\n";
+    String message = super.toString();
+    if (itHadAGhost) {
+      message += "+ Volt benne szellem\n";
     }
-    if (voltBenneSzornyeteg) {
-      uzenet += "+ Volt benne szörnyeteg\n";
+    if (itHadAMonster) {
+      message += "+ Volt benne szörnyeteg\n";
     }
-    return uzenet;
+    return message;
   }
 }

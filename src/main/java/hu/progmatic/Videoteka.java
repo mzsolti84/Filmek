@@ -37,30 +37,45 @@ public class Videoteka {
       if (film != null && date == film.getDate()) System.out.println(film.toString());
     }
   }
-  public void lekerdezFilmekErtekelesSzerint(int minErtekeles) {
+  public void lekerdezFilmekErtekelesSzerint(int minRating) {
     for (Film film : filmek) {
-      if (film != null && minErtekeles <= film.getErtekeles()) System.out.println(film.toString());
+      if (film != null && minRating <= film.getErtekeles()) System.out.println(film.toString());
     }
   }
 
   public void lekerdezSzellemesFilmek() {
     for (Film film : filmek) {
       if (film != null) {
-        if ((film instanceof HorrorFilm) && ((HorrorFilm) film).isVoltBenneSzellem()) {
-          System.out.println(film.toString());
-        }
+        if ((film instanceof HorrorFilm) && ((HorrorFilm) film).isItHadAGhost()) { System.out.println(film.toString()); }
       }
     }
   }
+
   public void lekerdezHazassagokSzam() {
-    int hazassagokSzama = 0;
+    int numberOfMarriages = 0;
     for (Film film : filmek) {
       if (film != null) {
-        if ((film instanceof RomantikusFilm)) {
-          hazassagokSzama += ((RomantikusFilm) film).getHazassagokSzama();
-        }
+        if ((film instanceof RomantikusFilm)) { numberOfMarriages += ((RomantikusFilm) film).getNumberOfMarriages(); }
       }
     }
-    System.out.println("Házasságok száma a filmekben összesen: " + hazassagokSzama);
+    System.out.println("Házasságok száma a filmekben összesen: " + numberOfMarriages);
+  }
+
+  public String[] Serialize() {
+    String[] s = new String[filmek.length];
+    for (int i = 0; i < filmek.length; i++) {
+      s[i] = filmek[i].getFILM_ID() + "," + filmek[i].getTitle() + "," + filmek[i].getDate() + ","
+          + filmek[i].getGenre() + "," + filmek[i].getRunTime() + "," + filmek[i].getBudget();
+    }
+    return s;
+  }
+
+  public void DeSerialize(String[] adat) {
+    //String[] reszek = new String[filmek.length];
+    for (int i = 0; i < filmek.length; i++) {
+      String[] reszek  = adat[i].split(",");
+      filmek[i].setFILM_ID(reszek[0]);
+      filmek[i].setTitle(reszek[1]);
+    }
   }
 }

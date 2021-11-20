@@ -14,15 +14,15 @@ public class Main {
     Film[] filmek = new Film[]{film1, film2}; */
 
     Videoteka videoteka = new Videoteka(10);
-    teszAdatok(videoteka);
+    fillWithDatas(videoteka);
     Menu(videoteka);
   }
 
-  public static void teszAdatok(Videoteka videoteka){
+  public static void fillWithDatas(Videoteka videoteka){
     Film film2 = new RomantikusFilm("S125R", "Elfújta a szél", 1939, "Romantikus", 7200, 100_000_000);
-    ((RomantikusFilm) film2).setHazassagokSzama(2);
+    ((RomantikusFilm) film2).setNumberOfMarriages(2);
     Film film6 = new HorrorFilm("S129H","Az",2017,"Horror",8200,35_000_000);
-    ((HorrorFilm) film6).setVoltBenneSzellem(true);
+    ((HorrorFilm) film6).setItHadAGhost(true);
 
     videoteka.addFilm(new Film("S123","Bosszuállók",2012,"Akció",7300,148_000_000));
     videoteka.addFilm(film2);
@@ -38,7 +38,7 @@ public class Main {
 
   public static void Menu(Videoteka videoteka) {
     Scanner scanner = new Scanner(System.in);
-    int parancs;
+    int command;
     do {
       System.out.println("****************Mit szeretne tenni?*****************");
       System.out.println("0. Kilépés");
@@ -49,8 +49,8 @@ public class Main {
       System.out.println("5. Filmek listázása, amelyekben vannak szellemek");
       System.out.println("6. Összesen ennyi házasságot kötöttek a filmjeidben:");
       System.out.println("****************************************************");
-      parancs = scanner.nextInt();
-      switch (parancs){
+      command = scanner.nextInt();
+      switch (command){
         case 1:
           System.out.println();
           videoteka.listaz();
@@ -84,7 +84,7 @@ public class Main {
         case 0:
           break;
       }
-    } while(parancs != 0);
+    } while(command != 0);
   }
 
 }
