@@ -1,15 +1,14 @@
 package hu.progmatic;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 
 public class VideotekaFile extends Videoteka{
-  private int filmSize;
+  private int filmSize = 0;
+  private final int maxSize;
 
-  public VideotekaFile(int size) {
-    super(size);
+  public VideotekaFile(int maxSize) {
+    super(maxSize);
+    this.maxSize = maxSize;
   }
 
   public String[] Serialize() {
@@ -25,25 +24,33 @@ public class VideotekaFile extends Videoteka{
     //String[] reszek = new String[filmek.length];
     for (int i = 0; i < filmSize; i++) {
       String[] reszek  = adat[i].split(",");
-      filmek[i].setFILM_ID(reszek[0]);
-      filmek[i].setTitle(reszek[1]);
-      filmek[i].setDate(Integer.parseInt(reszek[2]));
-      filmek[i].setGenre(reszek[3]);
-      filmek[i].setRunTime(Integer.parseInt(reszek[4]));
-      filmek[i].setBudget(Integer.parseInt(reszek[5]));
+      filmek[i] = new Film(reszek[0], reszek[1], Integer.parseInt(reszek[2]), reszek[3],
+          Integer.parseInt(reszek[4]), Integer.parseInt(reszek[5]));
     }
   }
 
   public boolean save(String fileName){
     String[] datas = Serialize();
     try (Writer writer = new OutputStreamWriter(new FileOutputStream(fileName))) {
-        for (int i = 0; i < datas.length; i++) {
-          writer.write(datas[i] + "\n");
-        }
+      for (String data : datas) {
+        writer.write(data + "\n");
+      }
       return true;
     } catch (IOException e) {
       e.printStackTrace();
       return false;
+    }
+  }
+
+  protected void load(String fileName) {
+    String[] strLines = new String[maxSize + 1];
+    try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)))) {
+      while ((strLines[filmSize] = reader.readLine()) != null) {
+        filmSize++;
+      }
+      DeSerialize(strLines);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 

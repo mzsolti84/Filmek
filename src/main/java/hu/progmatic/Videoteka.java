@@ -61,5 +61,4 @@ public class Videoteka {
     System.out.println("Házasságok száma a filmekben összesen: " + numberOfMarriages);
   }
 
-
 }
