@@ -16,9 +16,31 @@ public class Main {
     Videoteka videoteka = new Videoteka(10);
     fillWithDatas(videoteka);
     Menu(videoteka);
+
+    VideotekaFile videotekaFile = new VideotekaFile(10);
+    fillWithDatas2(videotekaFile);
+    videotekaFile.save("Videos.csv");
   }
 
   public static void fillWithDatas(Videoteka videoteka){
+    Film film2 = new RomantikusFilm("S125R", "Elfújta a szél", 1939, "Romantikus", 7200, 100_000_000);
+    ((RomantikusFilm) film2).setNumberOfMarriages(2);
+    Film film6 = new HorrorFilm("S129H","Az",2017,"Horror",8200,35_000_000);
+    ((HorrorFilm) film6).setItHadAGhost(true);
+
+    videoteka.addFilm(new Film("S123","Bosszuállók",2012,"Akció",7300,148_000_000));
+    videoteka.addFilm(film2);
+    videoteka.addFilm(new Film("S124","Pokember",2003,"Akció",9000,250_000));
+    videoteka.addFilm(new WesternFilm("S127W","Egy marék dollárért",1970,"Western",7300,2_000_000));
+    videoteka.addFilm(new Film("S126","Harry Potter 2",2002,"Kaland",9600,100_000_000));
+    videoteka.addFilm(film6);
+    videoteka.addFilm(new RomantikusFilm("S128R","Titanic",1997,"Romantikus",11_800,200_000_000));
+    videoteka.addFilm(new Film("S130","Avatar",2009,"Sci-fi",11_900,237_000_000));
+    videoteka.addFilm(new Film("S131","300",2006,"Akció",8900,100_000));
+    videoteka.addFilm(new WesternFilm("S132W","Nevem Senki",1973,"Western",7900,300_000));
+  }
+
+  public static void fillWithDatas2(VideotekaFile videoteka){
     Film film2 = new RomantikusFilm("S125R", "Elfújta a szél", 1939, "Romantikus", 7200, 100_000_000);
     ((RomantikusFilm) film2).setNumberOfMarriages(2);
     Film film6 = new HorrorFilm("S129H","Az",2017,"Horror",8200,35_000_000);

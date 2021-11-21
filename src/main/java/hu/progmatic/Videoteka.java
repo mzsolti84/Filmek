@@ -1,7 +1,7 @@
 package hu.progmatic;
 
 public class Videoteka {
-  private Film[] filmek;
+  protected Film[] filmek;
   //private final int size;
 
   public Videoteka(int size) {
@@ -61,21 +61,5 @@ public class Videoteka {
     System.out.println("Házasságok száma a filmekben összesen: " + numberOfMarriages);
   }
 
-  public String[] Serialize() {
-    String[] s = new String[filmek.length];
-    for (int i = 0; i < filmek.length; i++) {
-      s[i] = filmek[i].getFILM_ID() + "," + filmek[i].getTitle() + "," + filmek[i].getDate() + ","
-          + filmek[i].getGenre() + "," + filmek[i].getRunTime() + "," + filmek[i].getBudget();
-    }
-    return s;
-  }
 
-  public void DeSerialize(String[] adat) {
-    //String[] reszek = new String[filmek.length];
-    for (int i = 0; i < filmek.length; i++) {
-      String[] reszek  = adat[i].split(",");
-      filmek[i].setFILM_ID(reszek[0]);
-      filmek[i].setTitle(reszek[1]);
-    }
-  }
 }
